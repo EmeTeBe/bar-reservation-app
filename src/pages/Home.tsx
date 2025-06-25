@@ -18,7 +18,7 @@ export default function Home() {
 
           <Link
             to="/reservar"
-            className="block bg-gray-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition"
+            className="block bg-black text-white py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition"
           >
             Hacer una reserva
           </Link>

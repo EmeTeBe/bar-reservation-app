@@ -8,7 +8,7 @@ export function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reservar" element={<Reservation />} />
-        <Route path="/confirm" element={<Confirm />} />
+        <Route path="/confirmar" element={<Confirm />} />
       </Routes>
   );
 }
