@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import Select from "../components/Select";
 
 const generateTimeOptions = () => {
   const startHour = 20;
@@ -47,15 +48,15 @@ export default function Reservation() {
     <section className="min-h-screen bg-gray-200 text-black px-6 py-8">
       <h2 className="text-2xl font-bold text-center mb-6">Reservar mesa</h2>
 
-      <form className="space-y-6 mt-32" onSubmit={handleSubmit}>
+      <form className="space-y-6 mt-42" onSubmit={handleSubmit}>
         {/* Cantidad de personas */}
         <div>
-          <label htmlFor="people" className="block mb-2 text-sm">Cantidad de personas</label>
-          <select
+          <Select
+            label="Cantidad de personas"
             name="people"
             value={formData.people}
             onChange={handleChange}
-            className="p-3 rounded text-black text-3xl"
+            className=""
             required
           >
             <option value="">Seleccionar</option>
@@ -64,17 +65,17 @@ export default function Reservation() {
                 {i + 1 === 1 ? "1 persona" : `${i + 1} personas`}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
-
+        <hr />
         {/* Día de la semana */}
         <div>
-          <label htmlFor="day" className="block mb-2 text-sm">Día</label>
-          <select
+          <Select
+            label="Día"
             name="day"
             value={formData.day}
             onChange={handleChange}
-            className="p-3 rounded text-black text-3xl"
+            className=""
             required
           >
             <option value="">Seleccionar</option>
@@ -82,31 +83,33 @@ export default function Reservation() {
             <option value="jueves">Jueves</option>
             <option value="viernes">Viernes</option>
             <option value="sábado">Sábado</option>
-          </select>
+          </Select>
         </div>
-
+        <hr />
         {/* Horario */}
         <div>
-          <label htmlFor="time" className="block mb-2 text-sm">Horario</label>
-          <select
+          <Select
+            label="Horario"
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="p-3 rounded text-black text-3xl"
+            className=""
             required
           >
-            <option value="">Seleccione un horario</option>
+            <option value="">Seleccionar hora</option>
             {generateTimeOptions().map((time) => (
               <option key={time} value={time}>
                 {time}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
-
+        <hr />
         {/* Observaciones */}
         <div>
-          <label htmlFor="notes" className="block mb-2 text-sm">Observaciones</label>
+          <label htmlFor="notes" className="block mb-2 text-sm">
+            Observaciones
+          </label>
           <textarea
             name="notes"
             value={formData.notes}
@@ -117,10 +120,7 @@ export default function Reservation() {
           />
         </div>
         <div className="flex justify-center">
-          <Button
-            type="submit"
-            className="w-xs py-5 font-semibold"
-          >
+          <Button type="submit" className="w-xs py-5 font-semibold">
             Confirmar
           </Button>
         </div>
