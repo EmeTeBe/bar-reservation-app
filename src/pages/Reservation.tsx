@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useReservation } from "../hooks/useReservation";
 import Button from "../components/Button";
 import Select from "../components/Select";
 
@@ -24,24 +24,19 @@ const generateTimeOptions = () => {
 export default function Reservation() {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    people: "",
-    day: "",
-    time: "",
-    notes: "",
-  });
+  const { people, day, time, notes, setReservation } = useReservation();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setReservation({ [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Guardar datos y redirigir
-    navigate("/confirmar", { state: formData });
+    navigate("/confirmar");
   };
 
   return (
@@ -54,7 +49,7 @@ export default function Reservation() {
           <Select
             label="Cantidad de personas"
             name="people"
-            value={formData.people}
+            value={people}
             onChange={handleChange}
             className=""
             required
@@ -73,7 +68,7 @@ export default function Reservation() {
           <Select
             label="Día"
             name="day"
-            value={formData.day}
+            value={day}
             onChange={handleChange}
             className=""
             required
@@ -91,7 +86,7 @@ export default function Reservation() {
           <Select
             label="Horario"
             name="time"
-            value={formData.time}
+            value={time}
             onChange={handleChange}
             className=""
             required
@@ -112,7 +107,7 @@ export default function Reservation() {
           </label>
           <textarea
             name="notes"
-            value={formData.notes}
+            value={notes}
             onChange={handleChange}
             className="w-full p-3 rounded text-black resize-none"
             rows={4}

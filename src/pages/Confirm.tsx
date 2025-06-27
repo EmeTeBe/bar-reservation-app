@@ -1,12 +1,12 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useReservation } from "../hooks/useReservation";
 
 export default function Confirm() {
-  const location = useLocation();
   const navigate = useNavigate();
+  // Obtenemos los datos de la reserva del contexto
+  const { people, day, time, notes } = useReservation();
 
-  const formData = location.state;
-
-  if (!formData) {
+  if (!people) {
     // Si entran directamente a /confirm sin pasar por /reservation
     return (
       <div className="p-4 text-center">
@@ -21,25 +21,27 @@ export default function Confirm() {
     );
   }
 
-  const { people, day, time, notes } = formData;
-
   return (
     <div className="p-4 space-y-4">
       <h1 className="text-2xl font-bold text-center">Confirmá tu reserva</h1>
 
-      <div className="border p-4 rounded">
-        <p>
+      <div className="p-4 rounded text-2xl mt-36">
+        <p className="my-10">
           <strong>Personas:</strong> {people}
         </p>
-        <p>
+        <hr />
+        <p className="my-10">
           <strong>Día:</strong> {day}
         </p>
-        <p>
+        <hr />
+        <p className="my-10">
           <strong>Horario:</strong> {time}
         </p>
-        <p>
+        <hr />
+        <p className="my-10">
           <strong>Notas:</strong> {notes || "Ninguna"}
         </p>
+        <hr />
       </div>
 
       <div className="flex justify-center gap-4 mt-6">
