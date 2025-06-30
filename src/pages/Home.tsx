@@ -2,29 +2,41 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <section className="min-h-screen flex flex-col p-6 gap-6">
-      <div className="h-[60vh]">
+    <div className="min-h-screen h-screen flex flex-col p-4 gap-4 sm:p-6 sm:gap-6 overflow-hidden">
+      <section className="h-[60vh]">
         <img
           src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
           alt="Foto del bar"
           className="w-full h-full object-cover rounded-2xl"
         />
-      </div>
+      </section>
 
-      <div className="flex-1 bg-stone-500 text-white rounded-2xl px-6 py-8 ">
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold">Nirvana Bar 🍷</h1>
-          <p className="text-gray-300">Santiago del Estero 2686</p>
-
-          <Link
-            to="/reservar"
-            className="block bg-black text-white py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition"
-          >
-            Hacer una reserva
-          </Link>
+      <section className="h-[40vh] overflow-y-auto bg-stone-500 text-white rounded-2xl px-2 py-4 sm:px-4 sm:py-6 flex flex-col justify-between">
+        <div className="font-playfair text-3xl sm:text-4xl mb-2 text-black">
+          <h1 className="">Nirvana Bar</h1>
+          <p className="">Snack bar Nirvana
+             Disfruta de una experiencia única en nuestro bar. Ven a probar
+              nuestros deliciosos cócteles y tapas.
+          </p>
         </div>
-      </div>
-    </section>
+        <hr className="my-4" />
+        <div className="flex flex-1">
+          <div className="flex w-1/2 text-black">
+            <p className="">
+              Santiago del Estero 2686
+            </p>
+          </div>
+          <div className="w-1/2 flex justify-end items-end">
+            <Link
+              to="/reservar"
+              className="w-fit block bg-black text-white px-4 rounded-full text-center"
+            >
+              Hacer una reserva
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 // Este componente es la página de inicio de la aplicación.
