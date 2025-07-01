@@ -12,24 +12,23 @@ export default function Home() {
       </section>
 
       <section className="h-[40vh] overflow-y-auto bg-stone-500 text-white rounded-2xl px-2 py-4 sm:px-4 sm:py-6 flex flex-col justify-between">
-        <div className="font-playfair text-3xl sm:text-4xl mb-2 text-black">
+        <div className="font-playfair text-4xl sm:text-5xl mb-2 text-black leading-8 tracking-tight sm:leading-10">
           <h1 className="">Nirvana Bar</h1>
           <p className="">Snack bar Nirvana
-             Disfruta de una experiencia única en nuestro bar. Ven a probar
-              nuestros deliciosos cócteles y tapas.
+             Disfruta de una experiencia única en nuestro bar.
           </p>
         </div>
         <hr className="my-4" />
         <div className="flex flex-1">
           <div className="flex w-1/2 text-black">
-            <p className="">
+            <p>
               Santiago del Estero 2686
             </p>
           </div>
           <div className="w-1/2 flex justify-end items-end">
             <Link
               to="/reservar"
-              className="w-fit block bg-black text-white px-4 rounded-full text-center"
+              className="w-fit block bg-black text-white px-4 text-sm sm:py-4 rounded-full text-center"
             >
               Hacer una reserva
             </Link>

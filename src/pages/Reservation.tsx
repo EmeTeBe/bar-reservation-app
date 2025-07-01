@@ -40,18 +40,19 @@ export default function Reservation() {
   };
 
   return (
-    <section className="min-h-screen bg-gray-200 text-black px-6 py-8">
-      <h2 className="text-2xl font-bold text-center mb-6">Reservar mesa</h2>
+    <section className="min-h-screen h-screen flex flex-col bg-gray-200 text-black px-6 py-4 sm:px-8 sm:py-6 gap-6">
+      <h2 className="text-2xl font-bold text-center mb-6 font-playfair">Reservar mesa</h2>
 
-      <form className="space-y-6 mt-42" onSubmit={handleSubmit}>
+      <form className="flex flex-col justify-between flex-1" onSubmit={handleSubmit}>
         {/* Cantidad de personas */}
+        <hr />
         <div>
           <Select
             label="Cantidad de personas"
             name="people"
             value={people}
             onChange={handleChange}
-            className=""
+            className="font-playfair"
             required
           >
             <option value="">Seleccionar</option>
@@ -70,7 +71,7 @@ export default function Reservation() {
             name="day"
             value={day}
             onChange={handleChange}
-            className=""
+            className="font-playfair"
             required
           >
             <option value="">Seleccionar</option>
@@ -88,7 +89,7 @@ export default function Reservation() {
             name="time"
             value={time}
             onChange={handleChange}
-            className=""
+            className="font-playfair"
             required
           >
             <option value="">Seleccionar hora</option>
@@ -114,8 +115,9 @@ export default function Reservation() {
             placeholder="Aclaraciones, alergias, etc."
           />
         </div>
+        <hr />
         <div className="flex justify-center">
-          <Button type="submit" className="w-xs py-5 font-semibold">
+          <Button type="submit" className="w-full max-w-xs py-3 font-semibold">
             Confirmar
           </Button>
         </div>
