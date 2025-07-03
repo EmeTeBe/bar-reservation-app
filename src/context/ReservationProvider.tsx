@@ -9,6 +9,8 @@ export function ReservationProvider({children,}: {children: React.ReactNode;}) {
     day: "",
     time: "",
     notes: "",
+    name: "",
+    phone: "",
   });
 
   const setReservation = (data: Partial<ReservationData>) => {

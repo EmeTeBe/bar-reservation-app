@@ -43,7 +43,7 @@ export default function Reservation() {
     <section className="min-h-screen h-screen flex flex-col bg-gray-200 text-black px-6 py-4 sm:px-8 sm:py-6 gap-6">
       <h2 className="text-2xl font-bold text-center mb-6 font-playfair">Reservar mesa</h2>
 
-      <form className="flex flex-col justify-between flex-1" onSubmit={handleSubmit}>
+      <form className="flex flex-col justify-between flex-1 shadow-lg p-6 sm:p-10" onSubmit={handleSubmit}>
         {/* Cantidad de personas */}
         <hr />
         <div>

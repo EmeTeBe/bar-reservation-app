@@ -4,6 +4,8 @@ type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   type?: string;
+  name?: string;
+  required?: boolean;
 };
 
 export default function Input({
@@ -12,6 +14,8 @@ export default function Input({
   onChange,
   placeholder = "",
   type = "text",
+  name,
+  required,
 }: Props) {
   return (
     <label className="flex flex-col gap-1 text-sm font-semibold text-gray-700">
@@ -22,6 +26,8 @@ export default function Input({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        required={required}
+        name={name}
       />
     </label>
   );
